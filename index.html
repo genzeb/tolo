@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Tolo by genzeb</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/genzeb/tolo">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/genzeb/tolo/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/genzeb/tolo/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Tolo</h1>
+          <p>Tolo is an event publish/subscribe framework designed to decouple different parts of your iOS application while still allowing them to communicate efficiently.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/genzeb">genzeb</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <hr><p>To·lo | tō  - lō | <br><em>adverb</em> <br>
+Amharic for "hurry up"</p>
+
+<hr><h2>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a><em>Introduction</em>
+</h2>
+
+<p>Tolo is an event publish/subscribe framework inspired by <a href="http://square.github.io/otto/">Otto</a> and designed to decouple different parts of your iOS application while still allowing them to communicate efficiently. Traditional ways of subscribing for and triggering notifications are both cumbersome and error prone with minimal compile time checking.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a><em>Usage</em>
+</h2>
+
+<p>Tolo is intended for use as a singleton (though that is not required). The macros utilized in the examples below use the shared instance Tolo.sharedInstance. The use of these macros is optional, but it's highly recommended that you do use them.</p>
+
+<h3>
+<a name="publishing" class="anchor" href="#publishing"><span class="octicon octicon-link"></span></a>PUBLISHING</h3>
+
+<p>Event publishing is straightforward using the macro PUBLISH(). This allows you to tell subscribers an action has occurred. An instance of any class may be published an event and it will only be dispatched to subscribers of that type.</p>
+
+<p>To publish an event, create an instance of the event you wish to publish (for example: EventProgressUpdated) and use the macro PUBLISH() as follows:</p>
+
+<pre><code>PUBLISH(event);
+</code></pre>
+
+<p>where event is an instance of the event (for example: EventProgressUpdated *event = ...).</p>
+
+<h3>
+<a name="subscribing" class="anchor" href="#subscribing"><span class="octicon octicon-link"></span></a>SUBSCRIBING</h3>
+
+<p>Subscription is the complement to event publishing—-it lets you receive notification that an event has occurred. To subscribe to an event, use the macro SUBSCRIBE() passing in the event type you wish to subscribe to as follows:</p>
+
+<pre><code>SUBSCRIBE(EventProgressUpdated)
+{
+    // use the variable event -- for example: self.progressView.progress = event.progress
+}
+</code></pre>
+
+<p>In order to receive events, a class instance needs to register with Tolo. To register, simply use the macro REGISTER() passing in an instance of the class:</p>
+
+<pre><code>REGISTER(self);
+</code></pre>
+
+<h3>
+<a name="producing" class="anchor" href="#producing"><span class="octicon octicon-link"></span></a>PRODUCING</h3>
+
+<p>When subscribing to events it is often desired to also fetch the current known value for specific events (e.g., current location, active user, etc.). To address this common paradigm, Tolo adds the concept of 'Producers' which provide an immediate callback to any subscribers upon their registration.</p>
+
+<p>To create a producer, use the macro PUBLISHER():</p>
+
+<pre><code>PUBLISHER(EventProgressUpdated)
+{
+    return instance-of-EventProgressUpdated;
+}
+</code></pre>
+
+<p>Producers, like subscribers, must also be registered:</p>
+
+<pre><code>REGISTER(self);
+</code></pre>
+
+<p>When registering, the producer method will be called only once for any number of subscriber previously registered for the same type. However, the producer method will also be called once for each new method that subscribes to an event of the same type.</p>
+
+<p>You may only have one producer per event type registered at a time -- the last producer to subscribe is used.</p>
+
+<h3>
+<a name="thread-enforcement" class="anchor" href="#thread-enforcement"><span class="octicon octicon-link"></span></a>THREAD ENFORCEMENT</h3>
+
+<p>Since at times it may be ambiguous on which thread you are receiving callbacks, Tolo provides an enforcement mechanism to ensure you are always called on the main thread. By default, all interaction with an instance is confined to the main thread (this can be changes using the public property Tolo.forceMainThread -- YES by default).</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a><em>Installation</em>
+</h2>
+
+<p>There are two easy ways of installing Tolo:</p>
+
+<ol>
+<li>Drag-and-drop the files Tolo.h and Tolo.m into your project and import Tolo.h as needed, or</li>
+<li>Drag-and-drop the project file, Tolo.xcodeproj, into your project and add it as Target Dependencies in your project's Build Phases setting</li>
+</ol><p>Detailed instructions will be added at a later time.</p>
+
+<h4>
+<a name="hellowtolo" class="anchor" href="#hellowtolo"><span class="octicon octicon-link"></span></a>HELLOWTOLO</h4>
+
+<p>A sample application using Tolo is can be found at HelloTolo. The application is self explanatory. You can add as many subscribers as you like on the fly interactively, while also editing the text field, which generates an event with each keystroke.</p>
+
+<h4>
+<a name="questions" class="anchor" href="#questions"><span class="octicon octicon-link"></span></a><em>Questions</em>?</h4>
+
+<p>Feel free to contact me, Ephraim Tekle (<a href="https://github.com/genzeb" class="user-mention">@genzeb</a>), if you need additional help integrating Tolo into your project.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
