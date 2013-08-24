@@ -1,36 +1,40 @@
 Tolo
 ====
 
-To.lo
-/ to - lo /
-Amheric for "hurry up"
+To&middot;lo | t&#333;  - l&#333; | <br>
+_adverb_ <br>
+Amharic for "hurry up"
+
+====
 
 Tolo is an event publish/subscribe framework inspired by Otto and designed to decouple different parts of your iOS application while still allowing them to communicate efficiently. Traditional ways of subscribing for and triggering notifications are both cumbersome and error prone with minimal compile time checking.
 
+For latest usage instructions please see <a href="http://genzeb.github.io/tolo">the website</a>.
+
 Tolo is intended for use as a singleton (though that is not required). The macros utilized in the examples below use the shared instance Tolo.sharedInstance. The use of these macros is optional, but it's highly recommended that you do use them.
 
- PUBLISHING
+PUBLISHING
  
- Event publishing is straightforward using the macro PUBLISH(). This allows you to tell subscribers an action has occured. An instance of any class may be published an event and it will only be dispatched to subscribers of that type.
+Event publishing is straightforward using the macro PUBLISH(). This allows you to tell subscribers an action has occurred. An instance of any class may be published an event and it will only be dispatched to subscribers of that type.
  
- To publish an event, create an instance of the event you wish to publish (for example: EventProgressUpdated) and use the macro PUBLISH() as follows:
+To publish an event, create an instance of the event you wish to publish (for example: EventProgressUpdated) and use the macro PUBLISH() as follows:
  	
-    PUBLISH(event);
+	PUBLISH(event);
  
- where event is an instance of the event (for example: EventProgressUpdated *event = ...).
+where event is an instance of the event (for example: EventProgressUpdated *event = ...).
 
- SUBSCRIBING
+SUBSCRIBING
  
- Subscription is the complement to event publishing—-it lets you receive notification that an event has occurred. To subscribe to an event, use the macro SUBSCRIBE() passing in the event type you wish to subscribe to as follows:
+Subscription is the complement to event publishing—-it lets you receive notification that an event has occurred. To subscribe to an event, use the macro SUBSCRIBE() passing in the event type you wish to subscribe to as follows:
 
- 	SUBSCRIBE(EventProgressUpdated)
+	SUBSCRIBE(EventProgressUpdated)
  	{
  		// use the variable event -- for example: self.progressView.progress = event.progress
  	}
 
- In order to receive events, a class instance needs to register with Tolo. To register, simply use the macro REGISTER() passing in an instance of the class:
+In order to receive events, a class instance needs to register with Tolo. To register, simply use the macro REGISTER() passing in an instance of the class:
 
- 	REGISTER(self);
+	REGISTER(self);
 
 PRODUCING
 
@@ -55,7 +59,6 @@ You may only have one producer per event type registered at a time -- the last p
 THREAD ENFORCEMENT
 
 Since at times it may be ambiguous on which thread you are receiving callbacks, Tolo provides an enforcement mechanism to ensure you are always called on the main thread. By default, all interaction with an instance is confined to the main thread (this can be changes using the public property Tolo.forceMainThread -- YES by default).
-
 
 ====
 
