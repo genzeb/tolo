@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CBAE8FD717C808F100912D16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAE8FD617C808F100912D16 /* UIKit.framework */; };
+		CBAE8FD917C808F100912D16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAE8FD817C808F100912D16 /* Foundation.framework */; };
+		CBAE8FDB17C808F100912D16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAE8FDA17C808F100912D16 /* CoreGraphics.framework */; };
+		CBAE8FE117C808F100912D16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8FDF17C808F100912D16 /* InfoPlist.strings */; };
+		CBAE8FE317C808F100912D16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8FE217C808F100912D16 /* main.m */; };
+		CBAE8FE717C808F100912D16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8FE617C808F100912D16 /* AppDelegate.m */; };
+		CBAE8FE917C808F100912D16 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8FE817C808F100912D16 /* Default.png */; };
+		CBAE8FEB17C808F100912D16 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8FEA17C808F100912D16 /* Default@2x.png */; };
+		CBAE8FED17C808F100912D16 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8FEC17C808F100912D16 /* Default-568h@2x.png */; };
+		CBAE904817C83D7E00912D16 /* Events.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAE904717C83D7E00912D16 /* Events.m */; };
+		CBAE904C17C83E2000912D16 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAE904A17C83E2000912D16 /* ViewController.m */; };
+		CBAE904D17C83E2000912D16 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAE904B17C83E2000912D16 /* ViewController.xib */; };
+		CBAE905017C841A000912D16 /* ProgressGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAE904F17C841A000912D16 /* ProgressGenerator.m */; };
+		CBAE905317C8695700912D16 /* ProgressSubscriberView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAE905217C8695700912D16 /* ProgressSubscriberView.m */; };
+		CBAE905417C8720000912D16 /* libTolo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAE904217C81EDC00912D16 /* libTolo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBAE904117C81EDC00912D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBAE903D17C81EDC00912D16 /* Tolo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CBAE902017C81AA100912D16;
+			remoteInfo = Tolo;
+		};
+		CBAE904317C81EFD00912D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBAE903D17C81EDC00912D16 /* Tolo.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CBAE901F17C81AA100912D16;
+			remoteInfo = Tolo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CBAE8FD317C808F100912D16 /* HelloTolo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloTolo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBAE8FD617C808F100912D16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CBAE8FD817C808F100912D16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CBAE8FDA17C808F100912D16 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CBAE8FDE17C808F100912D16 /* HelloTolo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HelloTolo-Info.plist"; sourceTree = "<group>"; };
+		CBAE8FE017C808F100912D16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CBAE8FE217C808F100912D16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBAE8FE417C808F100912D16 /* HelloTolo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloTolo-Prefix.pch"; sourceTree = "<group>"; };
+		CBAE8FE517C808F100912D16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CBAE8FE617C808F100912D16 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CBAE8FE817C808F100912D16 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CBAE8FEA17C808F100912D16 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CBAE8FEC17C808F100912D16 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CBAE903D17C81EDC00912D16 /* Tolo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Tolo.xcodeproj; path = ../../Tolo/Tolo.xcodeproj; sourceTree = "<group>"; };
+		CBAE904617C83D7E00912D16 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		CBAE904717C83D7E00912D16 /* Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Events.m; sourceTree = "<group>"; };
+		CBAE904917C83E2000912D16 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CBAE904A17C83E2000912D16 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CBAE904B17C83E2000912D16 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		CBAE904E17C841A000912D16 /* ProgressGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressGenerator.h; sourceTree = "<group>"; };
+		CBAE904F17C841A000912D16 /* ProgressGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressGenerator.m; sourceTree = "<group>"; };
+		CBAE905117C8695700912D16 /* ProgressSubscriberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSubscriberView.h; sourceTree = "<group>"; };
+		CBAE905217C8695700912D16 /* ProgressSubscriberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSubscriberView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBAE8FD017C808F100912D16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBAE905417C8720000912D16 /* libTolo.a in Frameworks */,
+				CBAE8FD717C808F100912D16 /* UIKit.framework in Frameworks */,
+				CBAE8FD917C808F100912D16 /* Foundation.framework in Frameworks */,
+				CBAE8FDB17C808F100912D16 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBAE8FCA17C808F100912D16 = {
+			isa = PBXGroup;
+			children = (
+				CBAE8FDC17C808F100912D16 /* HelloTolo */,
+				CBAE8FD517C808F100912D16 /* Frameworks */,
+				CBAE8FD417C808F100912D16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBAE8FD417C808F100912D16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE8FD317C808F100912D16 /* HelloTolo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBAE8FD517C808F100912D16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE8FD617C808F100912D16 /* UIKit.framework */,
+				CBAE8FD817C808F100912D16 /* Foundation.framework */,
+				CBAE8FDA17C808F100912D16 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBAE8FDC17C808F100912D16 /* HelloTolo */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE903D17C81EDC00912D16 /* Tolo.xcodeproj */,
+				CBAE904517C83D5800912D16 /* Classes */,
+				CBAE8FDD17C808F100912D16 /* Supporting Files */,
+			);
+			path = HelloTolo;
+			sourceTree = "<group>";
+		};
+		CBAE8FDD17C808F100912D16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE8FDE17C808F100912D16 /* HelloTolo-Info.plist */,
+				CBAE8FDF17C808F100912D16 /* InfoPlist.strings */,
+				CBAE8FE217C808F100912D16 /* main.m */,
+				CBAE8FE417C808F100912D16 /* HelloTolo-Prefix.pch */,
+				CBAE8FE817C808F100912D16 /* Default.png */,
+				CBAE8FEA17C808F100912D16 /* Default@2x.png */,
+				CBAE8FEC17C808F100912D16 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBAE903E17C81EDC00912D16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE904217C81EDC00912D16 /* libTolo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBAE904517C83D5800912D16 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE8FE517C808F100912D16 /* AppDelegate.h */,
+				CBAE8FE617C808F100912D16 /* AppDelegate.m */,
+				CBAE904617C83D7E00912D16 /* Events.h */,
+				CBAE904717C83D7E00912D16 /* Events.m */,
+				CBAE904917C83E2000912D16 /* ViewController.h */,
+				CBAE904A17C83E2000912D16 /* ViewController.m */,
+				CBAE904B17C83E2000912D16 /* ViewController.xib */,
+				CBAE904E17C841A000912D16 /* ProgressGenerator.h */,
+				CBAE904F17C841A000912D16 /* ProgressGenerator.m */,
+				CBAE905117C8695700912D16 /* ProgressSubscriberView.h */,
+				CBAE905217C8695700912D16 /* ProgressSubscriberView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBAE8FD217C808F100912D16 /* HelloTolo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBAE8FF017C808F100912D16 /* Build configuration list for PBXNativeTarget "HelloTolo" */;
+			buildPhases = (
+				CBAE8FCF17C808F100912D16 /* Sources */,
+				CBAE8FD017C808F100912D16 /* Frameworks */,
+				CBAE8FD117C808F100912D16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBAE904417C81EFD00912D16 /* PBXTargetDependency */,
+			);
+			name = HelloTolo;
+			productName = HelloTolo;
+			productReference = CBAE8FD317C808F100912D16 /* HelloTolo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBAE8FCB17C808F100912D16 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Ephraim Tekle";
+			};
+			buildConfigurationList = CBAE8FCE17C808F100912D16 /* Build configuration list for PBXProject "HelloTolo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CBAE8FCA17C808F100912D16;
+			productRefGroup = CBAE8FD417C808F100912D16 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CBAE903E17C81EDC00912D16 /* Products */;
+					ProjectRef = CBAE903D17C81EDC00912D16 /* Tolo.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				CBAE8FD217C808F100912D16 /* HelloTolo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CBAE904217C81EDC00912D16 /* libTolo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTolo.a;
+			remoteRef = CBAE904117C81EDC00912D16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBAE8FD117C808F100912D16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBAE8FE117C808F100912D16 /* InfoPlist.strings in Resources */,
+				CBAE8FE917C808F100912D16 /* Default.png in Resources */,
+				CBAE8FEB17C808F100912D16 /* Default@2x.png in Resources */,
+				CBAE8FED17C808F100912D16 /* Default-568h@2x.png in Resources */,
+				CBAE904D17C83E2000912D16 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBAE8FCF17C808F100912D16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBAE8FE317C808F100912D16 /* main.m in Sources */,
+				CBAE8FE717C808F100912D16 /* AppDelegate.m in Sources */,
+				CBAE904817C83D7E00912D16 /* Events.m in Sources */,
+				CBAE904C17C83E2000912D16 /* ViewController.m in Sources */,
+				CBAE905017C841A000912D16 /* ProgressGenerator.m in Sources */,
+				CBAE905317C8695700912D16 /* ProgressSubscriberView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBAE904417C81EFD00912D16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Tolo;
+			targetProxy = CBAE904317C81EFD00912D16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CBAE8FDF17C808F100912D16 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBAE8FE017C808F100912D16 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBAE8FEE17C808F100912D16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CBAE8FEF17C808F100912D16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBAE8FF117C808F100912D16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloTolo/HelloTolo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(OBJROOT)/UninstalledProducts/include\"/**",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"/**",
+				);
+				INFOPLIST_FILE = "HelloTolo/HelloTolo-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CBAE8FF217C808F100912D16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloTolo/HelloTolo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(OBJROOT)/UninstalledProducts/include\"/**",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"/**",
+				);
+				INFOPLIST_FILE = "HelloTolo/HelloTolo-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBAE8FCE17C808F100912D16 /* Build configuration list for PBXProject "HelloTolo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBAE8FEE17C808F100912D16 /* Debug */,
+				CBAE8FEF17C808F100912D16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBAE8FF017C808F100912D16 /* Build configuration list for PBXNativeTarget "HelloTolo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBAE8FF117C808F100912D16 /* Debug */,
+				CBAE8FF217C808F100912D16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBAE8FCB17C808F100912D16 /* Project object */;
+}
