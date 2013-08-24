@@ -45,38 +45,38 @@ Amharic for "hurry up"</p>
 <a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a><em>Introduction</em>
 </h2>
 
-<p>Tolo is an event publish/subscribe framework inspired by <a href="http://square.github.io/otto/">Otto</a> and designed to decouple different parts of your iOS application while still allowing them to communicate efficiently. Traditional ways of subscribing for and triggering notifications are both cumbersome and error prone with minimal compile time checking.</p>
+<p>Tolo is an event publish/subscribe framework inspired by <a href="http://square.github.io/otto/">Otto</a> and designed to decouple different parts of your iOS application while still allowing them to communicate efficiently. Traditional ways of subscribing for and triggering notifications are both cumbersome and error prone with minimal compile time error checking.</p>
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a><em>Usage</em>
 </h2>
 
-<p>Tolo is intended for use as a singleton (though that is not required). The macros utilized in the examples below use the shared instance Tolo.sharedInstance. The use of these macros is optional, but it's highly recommended that you do use them.</p>
+<p>Tolo is intended for use as a singleton (though that is not required). The macros utilized in the examples below use the shared instance <code>Tolo.sharedInstance</code>. The use of these macros is optional, but it's highly recommended that you do use them.</p>
 
 <h3>
 <a name="publishing" class="anchor" href="#publishing"><span class="octicon octicon-link"></span></a>PUBLISHING</h3>
 
-<p>Event publishing is straightforward using the macro PUBLISH(). This allows you to tell subscribers an action has occurred. An instance of any class may be published an event and it will only be dispatched to subscribers of that type.</p>
+<p>Event publishing is straightforward using the macro <code>PUBLISH()</code>. This allows you to tell subscribers an action has occurred. An instance of any class may be published as an event and it will only be dispatched to subscribers of that type.</p>
 
-<p>To publish an event, create an instance of the event you wish to publish (for example: EventProgressUpdated) and use the macro PUBLISH() as follows:</p>
+<p>To publish an event, create an instance of the event you wish to publish (for example: <code>EventProgressUpdated</code>) and use the macro <code>PUBLISH()</code>:</p>
 
 <pre><code>PUBLISH(event);
 </code></pre>
 
-<p>where event is an instance of the event (for example: EventProgressUpdated *event = ...).</p>
+<p>where event is an instance of the event type (for example: <code>EventProgressUpdated *event = ...</code>).</p>
 
 <h3>
 <a name="subscribing" class="anchor" href="#subscribing"><span class="octicon octicon-link"></span></a>SUBSCRIBING</h3>
 
-<p>Subscription is the complement to event publishing—-it lets you receive notification that an event has occurred. To subscribe to an event, use the macro SUBSCRIBE() passing in the event type you wish to subscribe to as follows:</p>
+<p>Subscription is the complement to event publishing — it lets you receive notification that an event has occurred. To subscribe to an event, use the macro <code>SUBSCRIBE()</code> passing in the event type you wish to subscribe to:</p>
 
 <pre><code>SUBSCRIBE(EventProgressUpdated)
 {
-    // use the variable event -- for example: self.progressView.progress = event.progress
+    // use the variable event — for example: self.progressView.progress = event.progress
 }
 </code></pre>
 
-<p>In order to receive events, a class instance needs to register with Tolo. To register, simply use the macro REGISTER() passing in an instance of the class:</p>
+<p>In order to receive events, the class instance needs to register with Tolo. To register, simply use the macro <code>REGISTER()</code> and pass in a reference to the subscriber.</p>
 
 <pre><code>REGISTER(self);
 </code></pre>
@@ -86,7 +86,7 @@ Amharic for "hurry up"</p>
 
 <p>When subscribing to events it is often desired to also fetch the current known value for specific events (e.g., current location, active user, etc.). To address this common paradigm, Tolo adds the concept of 'Producers' which provide an immediate callback to any subscribers upon their registration.</p>
 
-<p>To create a producer, use the macro PUBLISHER():</p>
+<p>To create a producer, use the macro <code>PUBLISHER()</code>:</p>
 
 <pre><code>PUBLISHER(EventProgressUpdated)
 {
@@ -99,14 +99,14 @@ Amharic for "hurry up"</p>
 <pre><code>REGISTER(self);
 </code></pre>
 
-<p>When registering, the producer method will be called only once for any number of subscriber previously registered for the same type. However, the producer method will also be called once for each new method that subscribes to an event of the same type.</p>
+<p>When registering, the producer method will be called only once for any number of subscribers previously registered for the same event type. However, the producer method will also be called once for each new subscriber that subscribes to an event of the same type.</p>
 
-<p>You may only have one producer per event type registered at a time -- the last producer to subscribe is used.</p>
+<p>You may only have one producer per event type registered at a time — if multiple producers are registered, the last producer to register is used.</p>
 
 <h3>
 <a name="thread-enforcement" class="anchor" href="#thread-enforcement"><span class="octicon octicon-link"></span></a>THREAD ENFORCEMENT</h3>
 
-<p>Since at times it may be ambiguous on which thread you are receiving callbacks, Tolo provides an enforcement mechanism to ensure you are always called on the main thread. By default, all interaction with an instance is confined to the main thread (this can be changes using the public property Tolo.forceMainThread -- YES by default).</p>
+<p>Since at times it may be ambiguous on which thread you are receiving callbacks, Tolo provides an enforcement mechanism to ensure you are always called on the main thread. By default, all interaction with an instance is confined to the main thread (this can be changes using the public property Tolo.forceMainThread — YES by default).</p>
 
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a><em>Installation</em>
