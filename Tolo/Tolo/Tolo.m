@@ -5,6 +5,26 @@
 //  Created by Ephraim Tekle on 8/23/13.
 //  Copyright (c) 2013 Ephraim Tekle. All rights reserved.
 //
+//  The MIT License (MIT)
+//
+//  Copyright (c) 2013 Ephraim Tekle
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of
+//  this software and associated documentation files (the "Software"), to deal in
+//  the Software without restriction, including without limitation the rights to
+//  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+//  the Software, and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+//  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+//  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+//  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "Tolo.h"
 #import <objc/runtime.h>
@@ -192,49 +212,3 @@
 }
 
 @end
-
-// The following would have been great had it worked. The issue is that there doesn't seem to be a way
-// of converting -[NSMethodSignature getArgumentTypeAtIndex:] into an actual Class string. If that were
-// possible, the methods could have been named anything as long as they take one param of that class
-//
-//- (NSDictionary *)selectorsWithPrefix:(NSString *)prefix
-//{
-//    NSMutableDictionary *result = [NSMutableDictionary dictionary];
-//
-//    static int NUMBER_OF_PARAMETERS = 1;
-//    static int INDEX_FIRST_PARAM = 2;
-//
-//    u_int count;
-//
-//    Method* methods = class_copyMethodList([self class], &count);
-//    for (int i = 0; i < count ; i++)
-//    {
-//        Method method = methods[i];
-//
-//        // number of params
-//        const char *encoding = method_getTypeEncoding(method);
-//        NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:encoding];
-//        int parameterCount = [signature numberOfArguments];
-//
-//        if (parameterCount - INDEX_FIRST_PARAM != NUMBER_OF_PARAMETERS) {
-//            continue;
-//        }
-//
-//        SEL selector = method_getName(method);
-//        const char* methodName = sel_getName(selector);
-//        NSString *methodNameString = [NSString stringWithCString:methodName encoding:NSUTF8StringEncoding];
-//
-//        if (![methodNameString hasPrefix:prefix]) {
-//            continue;
-//        }
-//
-//        const char *paramTypeName = [signature getArgumentTypeAtIndex:INDEX_FIRST_PARAM];
-//
-//        NSString *paramTypeNameString = [NSString stringWithCString:paramTypeName encoding:NSUTF8StringEncoding];
-//
-//        [result setObject:methodNameString forKey:paramTypeNameString];
-//
-//    }
-//    free(methods);
-//    return result;
-//}
