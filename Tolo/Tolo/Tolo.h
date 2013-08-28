@@ -47,7 +47,9 @@
  *    }
  * 
  *    Note: an instance of any class may become a subscriber; however, in order
- *    to receive events, the instance needs to register using the macro REGISTER();
+ *    to receive events, the instance needs to register using the macro REGISTER(). 
+ *    Unregistring a subscriber or/and publisher is optional, as subscribers/publishers
+ *    will be auto unregister on any next publish, subscriber, unsubscribe action.
  *
  * Producing (optional -- the initial value for an event when new subscribers are
  * register):
