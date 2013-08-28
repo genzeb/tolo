@@ -42,9 +42,4 @@ SUBSCRIBE(EventProgressUpdated)
     self.label.text = [NSString stringWithFormat:@"%0.2f",event.progress];
 }
 
-- (void) dealloc
-{
-    UNREGISTER();
-}
-
 @end

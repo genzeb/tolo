@@ -63,9 +63,9 @@
 
 #import <Foundation/Foundation.h>
 
-#define SUBSCRIBE(_event_name_) - (void) on##_event_name_:(_event_name_ *) event
+#define SUBSCRIBE(_event_type_) - (void) on##_event_type_:(_event_type_ *) event
 
-#define PUBLISHER(_event_name_) - (_event_name_ *) get##_event_name_
+#define PUBLISHER(_event_type_) - (_event_type_ *) get##_event_type_
 
 #define REGISTER() [Tolo.sharedInstance subscribe:self]
 
@@ -76,6 +76,9 @@
 @interface Tolo : NSObject
 
 @property(nonatomic) BOOL forceMainThread;
+
+@property (nonatomic,strong) NSString *publisherPrefix;
+@property (nonatomic,strong) NSString *observerPrefix;
 
 - (void) subscribe:(NSObject *)object;
 - (void) unsubscribe:(NSObject *)object;

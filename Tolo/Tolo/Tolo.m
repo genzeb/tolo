@@ -112,7 +112,11 @@
 - (id)init
 {
     self = [super init];
+    
     self.forceMainThread = YES;
+    self.publisherPrefix = @"get";
+    self.observerPrefix = @"on";
+    
     return self;
 }
 
@@ -124,7 +128,7 @@
         self.publishers = [NSMutableDictionary dictionary];
     }
     
-    NSDictionary *publishingObjects = [object selectorsWithPrefix:@"get" withParam:NO];
+    NSDictionary *publishingObjects = [object selectorsWithPrefix:self.publisherPrefix withParam:NO];
     
     if (publishingObjects.count) {
         
@@ -145,7 +149,7 @@
     if (!self.observers) {
         self.observers = [NSMutableDictionary dictionary];
     }
-    NSDictionary *observedObjects = [object selectorsWithPrefix:@"on" withParam:YES];
+    NSDictionary *observedObjects = [object selectorsWithPrefix:self.observerPrefix withParam:YES];
     
     if (observedObjects.count) {
         
@@ -173,12 +177,12 @@
 
 - (void) unsubscribe:(NSObject *)object
 {
-    for (NSString *key in self.observers) {
+    for (NSString *key in self.observers.allKeys) {
         
         NSMutableArray *subscribers = [self.observers objectForKey:key];
         
-        for (Subscriber *subscriber in subscribers) {
-            if (subscriber.target == object) {
+        for (Subscriber *subscriber in [NSArray arrayWithArray:subscribers]) {
+            if (!subscriber.target || subscriber.target == object) {
                 [subscribers removeObject:subscriber];
             }
         }
@@ -188,8 +192,11 @@
         }
     }
     
-    for (NSString *key in self.publishers) {
-        if ([(Subscriber *)[self.publishers objectForKey:key] target] == object) {
+    for (NSString *key in self.publishers.allKeys) {
+        
+        Subscriber *subscriber = (Subscriber *)[self.publishers objectForKey:key];
+        
+        if (!subscriber.target || subscriber.target == object) {
             [self.publishers removeObjectForKey:key];
         }
     }
@@ -205,8 +212,16 @@
         
         NSString *thisType = NSStringFromClass([type class]);
         
-        for (Subscriber *subscriber in [self.observers objectForKey:thisType]) {
-            [subscriber.target performSelector:subscriber.selector withObject:type];
+        NSMutableArray *observers = [self.observers objectForKey:thisType];
+        
+        for (Subscriber *subscriber in [NSArray arrayWithArray:observers]) {
+            
+            if (!subscriber.target) {
+                [observers removeObject:subscriber];
+            
+            } else {
+                [subscriber.target performSelector:subscriber.selector withObject:type];
+            }
         }
     }
 }
