@@ -108,6 +108,17 @@ Amharic for "hurry up"</p>
 
 <p>Since at times it may be ambiguous on which thread you are receiving callbacks, Tolo provides an enforcement mechanism to ensure you are always called on the main thread. By default, all interaction with an instance is confined to the main thread (this can be changes using the public property Tolo.forceMainThread — YES by default).</p>
 
+<h3>
+<a name="what-else" class="anchor" href="#what-else"><span class="octicon octicon-link"></span></a>WHAT ELSE?</h3>
+
+<p>There are a few things to keep in mind. Tolo dispatches all events on the main thread. To disable that (so that events are posted on the publishing thread), set the property <code>forceMainThread</code> to <code>NO</code>: <code>Tolo.sharedInstance.forceMainThread = NO</code> (or replace <code>Tolo.sharedInstance</code> with your instance of Tolo). </p>
+
+<p>You are strongly encouraged to use the macros. However, keep in mind that: 1) the macros use the default Tolo instance, b) if the subscriber/publisher prefixes are modified (these are <code>publisherPrefix</code> and <code>subscriberPrfix</code>), you can not use the <code>SUBSCRIBE()</code> and <code>PUBLISHER()</code> macros — <strong>all other macros work fine</strong>!</p>
+
+<p>As I said above, the use of macros is optional. For instance, subscribing becomes: <code>[&lt;Tolo instance&gt; subscribe:&lt;subscriber instance, eg. self&gt;]</code> or posting simply becomes <code>[&lt;Tolo instance&gt; publish:&lt;event instance&gt;]</code>.</p>
+
+<p>Last but not least, unsubscribing. You may explicitly unsubscribe from Tolo using the <code>UNREGISTER()</code> macro (or [ unregister:]). However, this is optional, and thanks to the magic of ARC, Tolo will auto-unregister upon subscriber getting dealloced. </p>
+
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a><em>Installation</em>
 </h2>
@@ -116,10 +127,8 @@ Amharic for "hurry up"</p>
 
 <ol>
 <li>Drag-and-drop the files Tolo.h and Tolo.m into your project and import Tolo.h as needed, or</li>
-<li>Drag-and-drop the project file, Tolo.xcodeproj, into your project and add it as Target Dependencies in your project's Build Phases setting</li>
-</ol><p>Detailed instructions will be added at a later time.</p>
-
-<h4>
+<li>Drag-and-drop the project file, Tolo.xcodeproj, into your project and add it as Target Dependencies and Link Binary With Libraries in your project's Build Phases setting</li>
+</ol><h4>
 <a name="hellowtolo" class="anchor" href="#hellowtolo"><span class="octicon octicon-link"></span></a>HELLOWTOLO</h4>
 
 <p>A sample application using Tolo is also <a href="https://github.com/genzeb/tolo/tree/master/HelloTolo">included</a>. The application is self explanatory. You can run the application and play around with it by adding as many subscribers (to a randomly generated event at 1Hz) as you like interactively. The text field also generates an event with each keystroke (a subscriber writes out what you are typing on the label below).</p>
