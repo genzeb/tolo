@@ -67,7 +67,7 @@ INSTALLATION
 
 There are three easy ways of installing Tolo:
 
-* Use cocoapods like: `pod 'tolo', '~>1.0.0'`
+* Use cocoapods like: `pod 'tolo', '~>1.0'`
 * Drag-and-drop the files Tolo.h and Tolo.m into your project and import Tolo.h as needed, or
 * Drag-and-drop the project file, Tolo.xcodeproj, into your project and add it as Target Dependencies in your project's Build Phases setting
 

@@ -67,7 +67,7 @@
         
         const char *encoding = method_getTypeEncoding(method);
         NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:encoding];
-        int parameterCount = [signature numberOfArguments];
+        NSUInteger parameterCount = [signature numberOfArguments];
         
         if (parameterCount - INDEX_FIRST_PARAM != numberOfParams) {
             continue;
@@ -122,6 +122,9 @@
 
 - (void) subscribe:(NSObject *)object
 {
+    // Unsubscribe the `object` to prevent multiple-subscriptions
+    [self unsubscribe:object];
+    
     // establish any data sources first
     
     if (!self.publishers) {
