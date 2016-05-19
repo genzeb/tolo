@@ -122,6 +122,9 @@
 
 - (void) subscribe:(NSObject *)object
 {
+    // Unsubscribe the `object` to prevent multiple-subscriptions
+    [self unsubscribe:object];
+    
     // establish any data sources first
     
     if (!self.publishers) {
