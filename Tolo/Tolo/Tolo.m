@@ -67,7 +67,7 @@
         
         const char *encoding = method_getTypeEncoding(method);
         NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:encoding];
-        int parameterCount = [signature numberOfArguments];
+        NSUInteger parameterCount = [signature numberOfArguments];
         
         if (parameterCount - INDEX_FIRST_PARAM != numberOfParams) {
             continue;
